@@ -10,15 +10,21 @@ import UIKit
 class ViewController: UIViewController {
     var count = 0
     // ! - implicitly unwrapped optional, so it is nil at compile time as it has not been init
-    var label: UILabel!
-    var secondLabel: UILabel!
-    var button: UIButton!
+    @IBOutlet var label: UILabel!
+   // var secondLabel: UILabel!
+    //var button: UIButton!
     
     // executes once when initial root object is set
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // label
+        
+        
+        /*
+         Adding labels / buttons via code
+         */
+        /*
         let label = UILabel()
         // set label without storyboard, via frame property. This won't be visible immediately, still need to add it to view hierarchy
         label.frame = CGRect(x: 170, y: 150, width: 60, height: 60)
@@ -53,21 +59,22 @@ class ViewController: UIViewController {
         // can be referred as Callback method, so button call back when event occurs
         button.addTarget(self, action: #selector(incrementCount), for: UIControl.Event.touchUpInside)
         decrementButton.addTarget(self, action: #selector(decrementCount), for: UIControl.Event.touchUpInside)
+ */
     }
-    @objc func incrementCount() {
+    @IBAction func incrementCount() {
         self.count += 1
         self.label.text = "\(self.count)"
-        self.secondLabel.text = "\(self.count)"
+       // self.secondLabel.text = "\(self.count)"
         
         // change background after click
-        let colours = [UIColor.red,UIColor.green,UIColor.gray, UIColor.white]
-        let randomNumber = Int.random(in: 0 ... 2)
-        button.backgroundColor = colours[randomNumber]
+//        let colours = [UIColor.red,UIColor.green,UIColor.gray, UIColor.white]
+//        let randomNumber = Int.random(in: 0 ... 2)
+//        button.backgroundColor = colours[randomNumber]
     }
-    @objc func decrementCount() {
+    @IBAction func decrementCount() {
         self.count -= 1
         self.label.text = "\(self.count)"
-        self.secondLabel.text = "\(self.count)"
+       // self.secondLabel.text = "\(self.count)"
         
     }
     
